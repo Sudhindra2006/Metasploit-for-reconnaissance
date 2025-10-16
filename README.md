@@ -25,9 +25,11 @@ Open terminal and try execute some kali linux commands
 Find out the ip address of the attackers system
 ## OUTPUT:
 
+<img width="907" height="356" alt="image" src="https://github.com/user-attachments/assets/2322c0f2-ecba-410e-a956-ab93353115cc" />
 
 Invoke msfconsole:
 ## OUTPUT:
+<img width="828" height="694" alt="image" src="https://github.com/user-attachments/assets/1d2bfe89-676a-4192-8f36-768834667f4a" />
 
 
 Type help or a question mark "?" to see the list of all available commands you can use inside msfconsole.
@@ -39,6 +41,7 @@ Port Scanning:
 Following command is executed for scanning the systems on our local area network with a TCP scan (-sT) looking for open ports between 1 and 1000 (-p1-1000).
 msf >  nmap -sT 192.168.1810/24 -p1-1000  (Replace with appropriate IP Address)
 ## OUTPUT:
+<img width="888" height="894" alt="image" src="https://github.com/user-attachments/assets/76bfc93b-32fe-41ea-b69a-ebac1cfa9c21" />
 
 step4:
 use the db-nmap command to scan and save the results into Metasploit's postgresql attached database. In that way, you can use those results in the exploitation stage later.
