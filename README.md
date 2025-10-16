@@ -50,6 +50,7 @@ scan the targets with the command db_nmap as follows.
 msf > db_nmap 192.168.181.0/24
 ## OUTPUT:
 
+<img width="753" height="722" alt="image" src="https://github.com/user-attachments/assets/e39923b2-8ea3-4c9b-9278-1818794452b9" />
 
 
 Metasploit has a multitude of scanning modules built in. If we open another terminal, we can navigate to Metasploit's auxiliary modules and list all the scanner modules.
@@ -63,6 +64,7 @@ Search is a powerful command in Metasploit that you can use to find what you wan
 msf >search name:Microsoft type:exploit
 ## OUTPUT:
 
+<img width="946" height="905" alt="image" src="https://github.com/user-attachments/assets/0da86133-6d45-474b-91c1-6d29485581c7" />
 
 
 The info command provides information regarding a module or platform,
