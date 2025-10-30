@@ -24,102 +24,44 @@ Open terminal and try execute some kali linux commands
 
 Find out the ip address of the attackers system
 ## OUTPUT:
+![ifconfig](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/1ee9b515-d992-48c2-8d68-ec66b61269f4)
 
-<img width="907" height="356" alt="image" src="https://github.com/user-attachments/assets/2322c0f2-ecba-410e-a956-ab93353115cc" />
-
-Invoke msfconsole:
+## Invoke msfconsole
 ## OUTPUT:
-<img width="828" height="694" alt="image" src="https://github.com/user-attachments/assets/1d2bfe89-676a-4192-8f36-768834667f4a" />
-
+![msfconsloe](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/3008e2ee-70c8-480c-b251-16d352a8f39b)
 
 Type help or a question mark "?" to see the list of all available commands you can use inside msfconsole.
+![help](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/3f316c4b-4cd4-418d-aa80-5a5f3180df68)
 
+## Port scanning:
+## msf > nmap -sT 192.168.1810/24-p1-1000
+![image](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/88bb7f51-e65e-4076-ab34-b5fb4d2631cb)
 
+## msf > db_nmap 192.168.181.0/24
+![image](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/05ee469b-e4ac-49b5-baf9-df3266a08786)
 
+## kali > ls-l
+![ls](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/1c7803b4-0ed2-4e0e-a87e-a6d6685672d9)
 
-Port Scanning:
-Following command is executed for scanning the systems on our local area network with a TCP scan (-sT) looking for open ports between 1 and 1000 (-p1-1000).
-msf >  nmap -sT 192.168.1810/24 -p1-1000  (Replace with appropriate IP Address)
-## OUTPUT:
-<img width="888" height="894" alt="image" src="https://github.com/user-attachments/assets/76bfc93b-32fe-41ea-b69a-ebac1cfa9c21" />
+## search 
+![search](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/e8f48467-91a9-4b32-a5e3-825eebe8d473)
 
-step4:
-use the db-nmap command to scan and save the results into Metasploit's postgresql attached database. In that way, you can use those results in the exploitation stage later.
-
-scan the targets with the command db_nmap as follows.
-msf > db_nmap 192.168.181.0/24
-## OUTPUT:
-
-<img width="753" height="722" alt="image" src="https://github.com/user-attachments/assets/e39923b2-8ea3-4c9b-9278-1818794452b9" />
-
-
-Metasploit has a multitude of scanning modules built in. If we open another terminal, we can navigate to Metasploit's auxiliary modules and list all the scanner modules.
-cd /usr/share /metasploit-framework/modules/auxiliary
-kali > ls -l
-## OUTPUT:
-
-
-
-Search is a powerful command in Metasploit that you can use to find what you want to locate. 
-msf >search name:Microsoft type:exploit
-## OUTPUT:
-
-<img width="946" height="905" alt="image" src="https://github.com/user-attachments/assets/0da86133-6d45-474b-91c1-6d29485581c7" />
-
-
-The info command provides information regarding a module or platform,
-
-Before beginning, set up the Metasploit database by starting the PostgreSQL server and initialize msfconsole database as follows:
-systemctl start postgresql
-msfdb init
-## OUTPUT:
-
-
-
-
+## info
+![info](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/806242b3-0eff-4183-872c-a33b2fb0a6e2)
 ## MYSQL ENUMERATION
-Find the IP address of the Metasploitable machine first. Then, use the db_nmap command in msfconsole with Nmap flags to scan the MySQL database at 3306 port.
-db_nmap -sV -sC -p 3306 <metasploitable_ip_address>
-
-## OUTPUT:
-
-Use the search option to look for an auxiliary module to scan and enumerate the MySQL database.
-search type:auxiliary mysql
-## OUTPUT:
-
-
-use the auxiliary/scanner/mysql/mysql_version module by typing the module name or associated number to scan MySQL version details.
-use 11
-Or:
-use auxiliary/scanner/mysql/mysql_version
-## OUTPUT:
-
-
-
-
-Use the set rhosts command to set the parameter and run the module, as follows:
-## OUTPUT:
-
-
-
-After scanning, you can also brute force MySQL root account via Metasploit's auxiliary(scanner/mysql/mysql_login) module.
-## OUTPUT:
-
-
-
-
-set the PASS_FILE parameter to the wordlist path available inside /usr/share/wordlists:
-set PASS_FILE /usr/share/wordlistss/rockyou.txt
-Then, specify the IP address of the target machine with the RHOSTS command.
-set RHOSTS <metasploitable-ip-address>
-Set BLANK_PASSWORDS to true in case there is no password set for the root account.
-set BLANK_PASSWORDS true
-## OUTPUT:
-
-
-
-
-
+## db_nmap -sV -sC -p 3306 <metasploitable_ip_address>
+![image](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/3561409d-97ef-4a9f-a47e-bd9d5be79903)
+## search
+![image](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/da995c5c-b4f5-4f61-b0f4-f0e03b3d3ebe)
+##  use 11 Or: use auxiliary/scanner/mysql/mysql_version
+![image](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/97a5eded-a893-4a00-bfb5-7c52369cecc3)
+## Use the set rhosts command to set the parameter and run the module, as follows:
+![image](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/6dbe03e3-405b-45e5-b86f-16afa5f7cf24)
+## After scanning, you can also brute force MySQL root account via Metasploit's auxiliary(scanner/mysql/mysql_login) module.
+![image](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/5ff81cd2-b37b-4a7e-86c9-4d2a31d262f4)
+## /usr/share/wordlists: set PASS_FILE /usr/share/wordlistss/rockyou.txt 
+![image](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/56d9ed2c-f63d-4c91-a504-d08debcace37)
+![image](https://github.com/Reebak04/Metasploit-for-reconnaissance/assets/118364993/bfc568ac-c5c3-4dcf-a057-47f7bb03ecb1)
 
 ## RESULT:
 The Metasploit framework for reconnaissance is  examined successfully
